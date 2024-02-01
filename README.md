@@ -91,3 +91,20 @@ Cancel my reservations
 
 View activities I'm assigned to
 Export PDF of participants
+
+
+# TO DO
+
+DB structure (done)
+Laravel Breeze with CRUD of Companies
+Roles/permissions: Manage companies is only for the admin role (here we'll start writing tests for each feature)
+Admin: managing users of the company (adding multi-tenancy)
+Login with company role: manage guides
+Company role: manage activities and assign guides
+Sending an email to the guide
+Company users can also view/manage activities
+Public homepage with a list of activities
+Registration to the activity as a customer
+Login with customer role: view my activities and cancel them
+Login with guide role: view my activities
+Guide export PDF
