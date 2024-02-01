@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
@@ -21,11 +22,11 @@ class CompanyController extends Controller
         return view("companies.create");
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreCompanyRequest $request): RedirectResponse
     {
         Company::create($request->validated());
 
-        return to_route("companies.index");
+        return to_route('companies.index');
     }
 
     public function edit(Company $company)
@@ -33,14 +34,14 @@ class CompanyController extends Controller
         return view("companies.edit", compact("company"));
     }
 
-    public function update(Request $request, Company $company): RedirectResponse
+    public function update(UpdateCompanyRequest $request, Company $company): RedirectResponse
     {
         $company->update($request->validated());
 
         return to_route("companies.index");
     }
 
-    public function destroyu(Company $company): RedirectResponse
+    public function destroy(Company $company): RedirectResponse
     {
         $company->delete();
         return to_route("companies.index");
