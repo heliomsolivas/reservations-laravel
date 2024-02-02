@@ -2,6 +2,8 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <x-input-error :messages="$errors->get('invitation')" class="mt-2" />
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

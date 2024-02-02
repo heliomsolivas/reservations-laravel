@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules;
 
-class StoreGuideRequest extends FormRequest
+class UpdateActivityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +22,12 @@ class StoreGuideRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', 'unique:user_invitations,email'],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'email.unique' => 'Invitation with this email address already requested.'
+            'name' => ['required'],
+            'description' => ['required'],
+            'start_time' => ['required', 'date'],
+            'price' => ['required', 'numeric'],
+            'image' => ['image', 'nullable'],
+            'guide_id' => ['required', 'exists:users,id'],
         ];
     }
 }
